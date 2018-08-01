@@ -810,3 +810,18 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
   Rendered posts/show.html.erb within layouts/application (0.5ms)
 Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/posts/2" for 98.22.28.243 at 2018-08-01 19:58:05 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vcj4vdL7iYR6nCodA+tp3OT3kIiXhCzkI30ND3fxHQhprhxI3C7+Wk4UHiUVDHfJYfV6y3Rlobz7nMVwsYEG9w==", "post"=>{"title"=>"Rails Lesson", "description"=>"dsfafdsa"}, "commit"=>"Update Post", "id"=>"2"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", "Rails Lesson"], ["description", "dsfafdsa"], ["updated_at", "2018-08-01 19:58:05.697390"], ["id", 2]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 4.4ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"patch", "authenticity_token"=>"vcj4vdL7iYR6nCodA+tp3OT3kIiXhCzkI30ND3fxHQhprhxI3C7+Wk4UHiUVDHfJYfV6y3Rlobz7nMVwsYEG9w==", "post"=>{"title"=>"Rails Lesson", "description"=>"dsfafdsa"}, "commit"=>"Update Post", "controller"=>"posts", "action"=>"update", "id"=>"2"}):
+  app/controllers/posts_controller.rb:29:in `update'
+
+
